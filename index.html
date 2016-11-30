@@ -1,0 +1,73 @@
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link type="text/css" href="estilos.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Registro</h1>
+    <div class="nombre">
+        <input type="texto" placeholder="Tu nombre..." id="nombre">
+        <script>
+        function apiGuardarNombre(){
+            var nombre = document.getElementById('nombre').value;
+            //SETITEM coloca un elemento
+            localStorage.setItem('nombre', nombre);
+            //GETITEM obtiene un elemento guardado
+            if(nombre == "") { alert('Ingresa un nombre por favor.'); return false;} 
+            console.log('Nombre guardado:' + localStorage.getItem('nombre'));
+        }
+        </script>
+        </div>    
+        <div class="correo">
+        <input type="text" placeholder="Tu correo..." id="correo">
+        <script>
+        function apiGuardarCorreo(){
+            var correo = document.getElementById('correo').value;
+            //SETITEM coloca un elemento
+            localStorage.setItem('correo', correo);
+            //GETITEM obtiene un elemento guardado
+            if(correo == "") { alert('Ingresa un correo por favor.'); return false;}
+            console.log('Correo guardado:' + localStorage.getItem('correo'));
+        }
+        </script>
+        </div>
+        <div class="password">
+        <input type="password" placeholder="Tu Password..." id="password">
+        <script>
+        function apiGuardarPassword(){
+            var password = document.getElementById('password').value;
+            //SETITEM coloca un elemento
+            localStorage.setItem('password', password);
+            //GETITEM obtiene un elemento guardado
+            if(password == "") { alert('Ingresa un password por favor.'); return false;}
+            console.log('Contraseña guardada:' + localStorage.getItem('password'));
+        }
+        </script>
+        </div>
+        <script>
+            function mostrarboton(){
+                if(document.getElementById('nombre').value !="" && document.getElementById('correo').value !="" && document.getElementById('password').value !=""){
+                    document.getElementById('oculto').style.display='block';
+                }
+            }
+        </script>
+        <script>
+            function mostrartexto(){
+                if(document.getElementById('nombre').value !="" && document.getElementById('correo').value !="" && document.getElementById('password').value !=""){
+                    document.getElementById('Registro Exitoso').innerHTML="Registro Exitoso.";
+                    document.getElementById('Registro Exitoso').style.color="aqua";
+                    document.getElementById('Registro Exitoso').style.fontSizes="40px";
+                }
+            }
+        </script>
+        <div class="botregistro">
+        <button onclick="apiGuardarNombre(); apiGuardarCorreo(); apiGuardarPassword(); mostrarboton(); mostrartexto()" id="btnregis">Registrar Datos</button>
+        </div>
+        <div class="botiniciar" id='oculto' style='display:none;'>
+        <button onclick="location.href='inicio.html'" id="btnini"> Iniciar</button>
+        </div>
+        <p id="Registro Exitoso"></p>
+        <img src="sesion.png">
+        </body>
+</html>
